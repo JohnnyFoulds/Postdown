@@ -5,9 +5,10 @@ Postdown
 
     *Generate markdown API document from Postman.*
 
-    The purpose of this fork is to fix issue I ran into when attempting to use this tool with a ``Collection v2.1`` export.
+The purpose of this fork is to fix issue I ran into when attempting to use this tool with a ``Collection v2.1`` export.
 
-    * Correct handling of both with sub-folders and without.
+* Correct handling of both with sub-folders and without.
+* Correct dictionary key check that throws exceptions
 
 
 Installation
