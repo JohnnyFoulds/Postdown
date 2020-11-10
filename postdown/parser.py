@@ -21,16 +21,19 @@ def parse_api(doc, api):
     doc.hr()
 
     # Request information.
-    doc.title('Request', 3)
     doc.comment_begin()
     if isinstance(request['url'], dict):
-        # Request Query
-        doc.bold('Query')
         rows = get_rows(
             request['url'].get('query',''),
             ['key', 'value', 'description']
         )
-        doc.table(['Key', 'Value', 'Description'], rows)
+
+        if len(rows) > 0:
+            doc.title('Request', 3)
+
+            # Request Query
+            doc.bold('Query')
+            doc.table(['Key', 'Value', 'Description'], rows)
 
     # Request Header
     if request['header']:
@@ -81,15 +84,16 @@ def parse_api(doc, api):
         )
 
         # Request Query
-        doc.bold('Request')
         doc.comment_begin()
         if isinstance(request['url'], dict):
-            doc.bold('Query')
             rows = get_rows(
                 request['url']['query'],
                 ['key', 'value', 'description']
             )
-            doc.table(['Key', 'Value', 'Description'], rows)
+            if len(rows) > 0:
+                doc.bold('Request')
+                doc.bold('Query')
+                doc.table(['Key', 'Value', 'Description'], rows)
 
         # Request Header
         if request['header']:

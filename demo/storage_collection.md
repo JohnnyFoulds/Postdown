@@ -16,8 +16,8 @@ Test the default path request for Email Documents.
 
 ----------------
 
-### Request
-
+> 
+> ### Request
 > 
 > **Query**
 > 
@@ -38,8 +38,8 @@ Test the default path request for Email Documents.
 > > GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acmem.corp/api/v1/document?sort=desc&limit=2&status=updated
 > > ```
 > > 
-> > **Request**
-> > 
+> > > 
+> > > **Request**
 > > > 
 > > > **Query**
 > > > 
@@ -121,14 +121,6 @@ Find a single email document by id.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 
 ### Examples:
@@ -147,14 +139,6 @@ Test deleting a email document.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 
 ### Examples:
@@ -173,14 +157,6 @@ Check to see if the post route is working.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 > **Body**
 > 
@@ -216,14 +192,6 @@ Test the schema validation of nested items.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 > **Body**
 > 
@@ -259,14 +227,6 @@ Check to see if the post route is working.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 > **Body**
 > 
@@ -301,14 +261,6 @@ Check to see if the put route is working and accepting an id.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 > **Body**
 > 
@@ -336,14 +288,6 @@ Get an email image by ID.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 
 ### Examples:
@@ -362,14 +306,6 @@ Upload an image
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 > **Body**
 > 
@@ -395,14 +331,6 @@ DELETE http://localhost:3000/api/v1/image/5fa3c929d7cbdd05ab940ec2
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 
 ### Examples:
