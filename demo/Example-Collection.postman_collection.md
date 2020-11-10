@@ -22,8 +22,8 @@ You should write the detail about this API.
 
 ----------------
 
-> 
-> ### Request
+### Request
+
 > 
 > **Query**
 > 
@@ -48,8 +48,8 @@ You should write the detail about this API.
 > > GET http://0.0.0.0:8000/get/example?example-key=successful
 > > ```
 > > 
-> > > 
-> > > **Request**
+> > **Request**
+> > 
 > > > 
 > > > **Query**
 > > > 
@@ -86,8 +86,8 @@ You should write the detail about this API.
 > > GET http://0.0.0.0:8000/get/example?example-key=unsuccessful
 > > ```
 > > 
-> > > 
-> > > **Request**
+> > **Request**
+> > 
 > > > 
 > > > **Query**
 > > > 
@@ -134,8 +134,8 @@ You should write the detail about this API.
 
 ----------------
 
-> 
-> ### Request
+### Request
+
 > 
 > **Query**
 > 
@@ -166,8 +166,8 @@ You should write the detail about this API.
 > > POST http://0.0.0.0:8000/post/example?example-key=example-value
 > > ```
 > > 
-> > > 
-> > > **Request**
+> > **Request**
+> > 
 > > > 
 > > > **Query**
 > > > 
@@ -212,8 +212,8 @@ You should write the detail about this API.
 > > POST http://0.0.0.0:8000/post/example?example-key=example-value
 > > ```
 > > 
-> > > 
-> > > **Request**
+> > **Request**
+> > 
 > > > 
 > > > **Query**
 > > > 
@@ -268,8 +268,8 @@ You should write the detail about this API.
 
 ----------------
 
-> 
-> ### Request
+### Request
+
 > 
 > **Query**
 > 
@@ -303,8 +303,8 @@ You should write the detail about this API.
 > > POST http://0.0.0.0:8000/json/example?example-key=example-value
 > > ```
 > > 
-> > > 
-> > > **Request**
+> > **Request**
+> > 
 > > > 
 > > > **Query**
 > > > 
@@ -350,8 +350,8 @@ You should write the detail about this API.
 > > POST http://0.0.0.0:8000/json/example?example-key=example-value
 > > ```
 > > 
-> > > 
-> > > **Request**
+> > **Request**
+> > 
 > > > 
 > > > **Query**
 > > > 

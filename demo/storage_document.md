@@ -44,14 +44,6 @@ Find a single email document by id.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 
 ### Examples:
@@ -70,14 +62,6 @@ Test deleting a email document.
 
 ----------------
 
-### Request
-
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 
 ### Examples:
@@ -98,12 +82,6 @@ Check to see if the post route is working.
 
 ### Request
 
-> 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
 > 
 > **Body**
 > 
@@ -142,12 +120,6 @@ Test the schema validation of nested items.
 ### Request
 
 > 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
-> 
 > **Body**
 > 
 > ```
@@ -185,12 +157,6 @@ Check to see if the post route is working.
 ### Request
 
 > 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
-> 
 > **Body**
 > 
 > ```
@@ -227,12 +193,6 @@ Check to see if the put route is working and accepting an id.
 ### Request
 
 > 
-> **Query**
-> 
-> |Key|Value|Description|
-> |---|---|---|
-> ||||
-> 
 > **Body**
 > 
 > ```
@@ -252,7 +212,5 @@ Check to see if the put route is working and accepting an id.
 ----------------
 
 Built with [Postdown][PyPI].
-
-Author: [Titor](https://github.com/TitorX)
 
 [PyPI]:    https://pypi.python.org/pypi/Postdown

@@ -8,6 +8,20 @@ def get_rows(raw, keys):
         result.append([i.get(k, '') for k in keys])
     return result
 
+# returns True if there are rows or a body in the request
+def need_request_header(request):
+    # get the query row count
+    rows = []
+    if 'query' in request['url']:
+        rows = get_rows(
+            request['url']['query'],
+            ['key', 'value', 'description']
+        )    
+
+    return len(rows) > 0 \
+        or ('body' in request) \
+        or ( ('header' in request) and request['header'] )
+
 def parse_api(doc, api):
     print("API: ", api)
     doc.title(api['name'], 2)
@@ -21,6 +35,8 @@ def parse_api(doc, api):
     doc.hr()
 
     # Request information.
+    if need_request_header(request):
+        doc.title('Request', 3)
     doc.comment_begin()
     if isinstance(request['url'], dict):
         rows = get_rows(
@@ -29,8 +45,6 @@ def parse_api(doc, api):
         )
 
         if len(rows) > 0:
-            doc.title('Request', 3)
-
             # Request Query
             doc.bold('Query')
             doc.table(['Key', 'Value', 'Description'], rows)
@@ -84,14 +98,16 @@ def parse_api(doc, api):
         )
 
         # Request Query
-        doc.comment_begin()
+        if need_request_header(request):
+            doc.bold('Request')
+            doc.comment_begin()
+
         if isinstance(request['url'], dict):
             rows = get_rows(
                 request['url']['query'],
                 ['key', 'value', 'description']
             )
             if len(rows) > 0:
-                doc.bold('Request')
                 doc.bold('Query')
                 doc.table(['Key', 'Value', 'Description'], rows)
 
