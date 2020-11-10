@@ -3,8 +3,10 @@
 To test the packages without installing it, use the following:
 
 ```bash
-python -m postdown.cmdline
+python -m postdown.cmdline demo/storage_document.json demo/storage_document.md
 ```
+
+_If you are using Windows Subsystem for Windows, you can navigate to `\\wsl$` to access the file system outside the shell._
 
 ## Web References
 

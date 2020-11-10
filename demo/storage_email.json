@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "8911b590-0e90-45ed-8f9e-de50912da51e",
+		"name": "Email Storage: Images",
+		"description": " These API methods allows for the images of attachment pages to be stored and associated with an email document.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/image/5fa3ca9bb4fa9e0604f5002f",
+					"protocol": "https",
+					"host": [
+						"spamfilter-storageservice-rpa-prod",
+						"app",
+						"prod",
+						"fs",
+						"ocp",
+						"acme",
+						"corp"
+					],
+					"path": [
+						"api",
+						"v1",
+						"image",
+						"5fa3ca9bb4fa9e0604f5002f"
+					]
+				},
+				"description": "Get an email image by ID."
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/fouldsjo/code/attacment-processing/src/rpa-poc/Data/Test/EC-1Z23-3QDBEJ/Letter - acme AUG QUERIES.doc.pdf.images/page_001.png"
+						},
+						{
+							"key": "metadata",
+							"value": "{\"srNumber\": \"EC-1Z23-3QDBEJ\"}",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/image/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"image",
+						"upload"
+					]
+				},
+				"description": "Upload an image"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Image",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/image/5fa3c929d7cbdd05ab940ec2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"image",
+						"5fa3c929d7cbdd05ab940ec2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

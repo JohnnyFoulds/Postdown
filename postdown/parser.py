@@ -8,6 +8,8 @@ def get_rows(raw, keys):
         result.append([i.get(k, '') for k in keys])
     return result
 
+def parse_api(api):
+    pass
 
 def parse(in_file, out_file):
     doc = MDDoc()
@@ -24,7 +26,9 @@ def parse(in_file, out_file):
 
     # API
     for folder in collection['item']:
+        print('Folder:', folder)
         for api in folder['item']:
+
             print("API: ", api)
             doc.title(api['name'], 2)
             request = api['request']

@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "24c42a60-da59-4439-935b-67abc04281f0",
+		"name": "Email Storage: Document",
+		"description": "The Email Storage Document API is used to store information extracted from emails and their attachments.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Document List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document?sort=desc&limit=2&status=updated",
+					"protocol": "https",
+					"host": [
+						"spamfilter-storageservice-rpa-prod",
+						"app",
+						"prod",
+						"fs",
+						"ocp",
+						"acme",
+						"corp"
+					],
+					"path": [
+						"api",
+						"v1",
+						"document"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "desc",
+							"description": "The direction (asc/desc) for sorting by the creation. This parameter is **optional** and **acending** is used as the default value."
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"description": "The max number of documents to return. When ommitted the default limit is **10**."
+						},
+						{
+							"key": "status",
+							"value": "updated",
+							"description": "The filter to apply to the top level `status` field. If omitted no filtering is done on this field."
+						}
+					]
+				},
+				"description": "Test the default path request for Email Documents."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Email Document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/document",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"document"
+					]
+				},
+				"description": "Find a single email document by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/document/5f9983b699274c2f309fd4cd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"document",
+						"5f9983b699274c2f309fd4cd"
+					]
+				},
+				"description": "Test deleting a email document."
+			},
+			"response": []
+		},
+		{
+			"name": "Post Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"key\" : \"post_request.eml\", \r\n    \"type\" : \"Email\", \r\n    \"text\" : \"Post request email body\",\r\n    \"values\" : [\r\n        {\r\n            \"key\" : \"subject\", \r\n            \"type\" : \"text\", \r\n            \"text\" : \"Post Email\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/document",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"document"
+					]
+				},
+				"description": "Check to see if the post route is working."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Netsted Email Document",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"key\" : \"post_request.eml\", \r\n    \"type\" : \"Email\", \r\n    \"text\" : \"Post request email body\",\r\n    \"values\" : [\r\n        {\r\n            \"key\" : \"subject\", \r\n            \"type\" : \"text\", \r\n            \"text\" : \"Post Email\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/document",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"document"
+					]
+				},
+				"description": "Test the schema validation of nested items."
+			},
+			"response": []
+		},
+		{
+			"name": "Post Request  - Error Testing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"type\" : \"Email\", \r\n    \"text\" : \"Post request email body\",\r\n    \"values\" : [\r\n        {\r\n            \"key\" : \"subject\", \r\n            \"type\" : \"text\", \r\n            \"text\" : \"Post Email\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/document",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"document"
+					]
+				},
+				"description": "Check to see if the post route is working."
+			},
+			"response": []
+		},
+		{
+			"name": "Put Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"The fox has jumped...\",\r\n    \"type\": \"Animal!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/document/5fa14115ea4bab39cbd17889",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"document",
+						"5fa14115ea4bab39cbd17889"
+					]
+				},
+				"description": "Check to see if the put route is working and accepting an id."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3eb966c8-18fe-4d4a-9835-7df5995b0253",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cd9dcd78-7b21-4b38-b476-6a14614da8e1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,474 @@
+{
+	"info": {
+		"_postman_id": "b998758c-0602-4fca-b698-4e99034ba8d3",
+		"name": "Email Storage System",
+		"description": "The Email Storage API is used to store information extracted from emails and their collections and allows for the pages of attachments to be stored and associated with an email document.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Email Document",
+			"item": [
+				{
+					"name": "Get Document List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acmem.corp/api/v1/document?sort=desc&limit=2&status=updated",
+							"protocol": "https",
+							"host": [
+								"spamfilter-storageservice-rpa-prod",
+								"app",
+								"prod",
+								"fs",
+								"ocp",
+								"acmem",
+								"corp"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "desc",
+									"description": "The direction (asc/desc) for sorting by the creation. This parameter is **optional** and **acending** is used as the default value."
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"description": "The max number of documents to return. When ommitted the default limit is **10**."
+								},
+								{
+									"key": "status",
+									"value": "updated",
+									"description": "The filter to apply to the top level `status` field. If omitted no filtering is done on this field."
+								}
+							]
+						},
+						"description": "Test the default path request for Email Documents."
+					},
+					"response": [
+						{
+							"name": "Get Document List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acmem.corp/api/v1/document?sort=desc&limit=2&status=updated",
+									"protocol": "https",
+									"host": [
+										"spamfilter-storageservice-rpa-prod",
+										"app",
+										"prod",
+										"fs",
+										"ocp",
+										"acmem",
+										"corp"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "desc",
+											"description": "The direction (asc/desc) for sorting by the creation. This parameter is **optional** and **acending** is used as the default value."
+										},
+										{
+											"key": "limit",
+											"value": "2",
+											"description": "The max number of documents to return. When ommitted the default limit is **10**."
+										},
+										{
+											"key": "status",
+											"value": "updated",
+											"description": "The filter to apply to the top level `status` field. If omitted no filtering is done on this field."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "813"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32d-qyPEDzKTygrGCkLww62vhjgxiu4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Nov 2020 07:59:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"status\": \"updated\",\n        \"_id\": \"5fa2a9be9cc0a802080e275d\",\n        \"key\": \"post_request.eml\",\n        \"type\": \"Animal!\",\n        \"text\": \"The fox has jumped...\",\n        \"values\": [\n            {\n                \"status\": \"new\",\n                \"_id\": \"5fa2a9be9cc0a802080e275e\",\n                \"key\": \"subject\",\n                \"type\": \"text\",\n                \"text\": \"Post Email\",\n                \"values\": [],\n                \"created\": \"2020-11-04T13:16:46.028Z\",\n                \"updated\": \"2020-11-04T13:16:58.456Z\"\n            }\n        ],\n        \"created\": \"2020-11-04T13:16:46.028Z\",\n        \"updated\": \"2020-11-04T13:16:58.460Z\",\n        \"__v\": 0\n    },\n    {\n        \"status\": \"updated\",\n        \"_id\": \"5fa25d7de0eb6a3dc2f020be\",\n        \"key\": \"post_request.eml\",\n        \"type\": \"Animal!\",\n        \"text\": \"The fox has jumped...\",\n        \"values\": [\n            {\n                \"status\": \"new\",\n                \"_id\": \"5fa25d7de0eb6a3dc2f020bf\",\n                \"key\": \"subject\",\n                \"type\": \"text\",\n                \"text\": \"Post Email\",\n                \"values\": [],\n                \"created\": \"2020-11-04T07:51:25.395Z\",\n                \"updated\": \"2020-11-04T13:00:23.080Z\"\n            }\n        ],\n        \"created\": \"2020-11-04T07:51:25.396Z\",\n        \"updated\": \"2020-11-04T13:00:23.096Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Single Email Document",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"document"
+							]
+						},
+						"description": "Find a single email document by id."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/document/5f9983b699274c2f309fd4cd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"5f9983b699274c2f309fd4cd"
+							]
+						},
+						"description": "Test deleting a email document."
+					},
+					"response": []
+				},
+				{
+					"name": "Post Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"key\" : \"post_request.eml\", \r\n    \"type\" : \"Email\", \r\n    \"text\" : \"Post request email body\",\r\n    \"values\" : [\r\n        {\r\n            \"key\" : \"subject\", \r\n            \"type\" : \"text\", \r\n            \"text\" : \"Post Email\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"document"
+							]
+						},
+						"description": "Check to see if the post route is working."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Netsted Email Document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"key\" : \"post_request.eml\", \r\n    \"type\" : \"Email\", \r\n    \"text\" : \"Post request email body\",\r\n    \"values\" : [\r\n        {\r\n            \"key\" : \"subject\", \r\n            \"type\" : \"text\", \r\n            \"text\" : \"Post Email\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"document"
+							]
+						},
+						"description": "Test the schema validation of nested items."
+					},
+					"response": []
+				},
+				{
+					"name": "Post Request  - Error Testing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"type\" : \"Email\", \r\n    \"text\" : \"Post request email body\",\r\n    \"values\" : [\r\n        {\r\n            \"key\" : \"subject\", \r\n            \"type\" : \"text\", \r\n            \"text\" : \"Post Email\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"document"
+							]
+						},
+						"description": "Check to see if the post route is working."
+					},
+					"response": []
+				},
+				{
+					"name": "Put Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"The fox has jumped...\",\r\n    \"type\": \"Animal!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/document/5fa14115ea4bab39cbd17889",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"5fa14115ea4bab39cbd17889"
+							]
+						},
+						"description": "Check to see if the put route is working and accepting an id."
+					},
+					"response": []
+				}
+			],
+			"description": "The `document` API methods are used to perform CRUD operation on stored email information.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "110852a5-100f-41b0-a788-9ce61d0bb65b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3bd0286-0a5f-4212-acb7-cef8074f6e51",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Email Image ",
+			"item": [
+				{
+					"name": "Get Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acmem.corp/api/v1/image/5fa3ca9bb4fa9e0604f5002f",
+							"protocol": "https",
+							"host": [
+								"spamfilter-storageservice-rpa-prod",
+								"app",
+								"prod",
+								"fs",
+								"ocp",
+								"acmem",
+								"corp"
+							],
+							"path": [
+								"api",
+								"v1",
+								"image",
+								"5fa3ca9bb4fa9e0604f5002f"
+							]
+						},
+						"description": "Get an email image by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fouldsjo/code/attacment-processing/src/rpa-poc/Data/Test/EC-1Z23-3QDBEJ/Letter - acmem AUG QUERIES.doc.pdf.images/page_001.png"
+								},
+								{
+									"key": "metadata",
+									"value": "{\"srNumber\": \"EC-1Z23-3QDBEJ\"}",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/image/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"image",
+								"upload"
+							]
+						},
+						"description": "Upload an image"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Image",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/image/5fa3c929d7cbdd05ab940ec2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"image",
+								"5fa3c929d7cbdd05ab940ec2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The `image` API methods are related to storing and retrieving images linked to `documents`.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7d0903a8-81b9-405b-b4b8-d7dfd6aac414",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c69abf1-0650-4715-beb3-76bb22e962e8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d7c85eba-277e-42ba-bbd4-6fb72506c50e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a19cf8c7-73e3-408e-8951-e9838ed72204",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
