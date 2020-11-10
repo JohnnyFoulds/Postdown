@@ -27,7 +27,8 @@ class MDDoc:
         self.block(content)
 
     def hr(self):
-        self.block('----------------')
+        #self.block('----------------')
+        pass
 
     def title(self, content, level=1):
         self.block('#'*level + ' ' + content)

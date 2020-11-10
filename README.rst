@@ -11,6 +11,8 @@ The purpose of this fork is to fix issue I ran into when attempting to use this 
 * Correct dictionary key check that throws exceptions.
 * Removed author from footer as it did not seem appropriate - the original still gets credit though the Postman link.
 * Do not render empty query tables.
+* Do not render empty Examples sections.
+* Removed overused horizontal rule.
 
 There are still some unsafe checks left for the moment to allow for validation that no new errors are introduced.
 

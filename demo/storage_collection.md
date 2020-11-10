@@ -1,10 +1,6 @@
 # Email Storage System
 
-----------------
-
 The Email Storage API is used to store information extracted from emails and their collections and allows for the pages of attachments to be stored and associated with an email document.
-
-----------------
 
 ## Get Document List
 
@@ -13,8 +9,6 @@ GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acmem.corp/api/v1
 ```
 
 Test the default path request for Email Documents.
-
-----------------
 
 ### Request
 
@@ -49,8 +43,6 @@ Test the default path request for Email Documents.
 > > > |limit|2|The max number of documents to return. When ommitted the default limit is **10**.|
 > > > |status|updated|The filter to apply to the top level `status` field. If omitted no filtering is done on this field.|
 > > > 
-> > 
-> > ----------------
 > > 
 > > **Response**
 > > 
@@ -109,8 +101,6 @@ Test the default path request for Email Documents.
 > > 
 > 
 
-----------------
-
 ## Get Single Email Document
 
 ```
@@ -118,8 +108,6 @@ GET http://localhost:3000/api/v1/document
 ```
 
 Find a single email document by id.
-
-----------------
 
 ## Delete Request
 
@@ -129,8 +117,6 @@ DELETE http://localhost:3000/api/v1/document/5f9983b699274c2f309fd4cd
 
 Test deleting a email document.
 
-----------------
-
 ## Post Request
 
 ```
@@ -138,8 +124,6 @@ POST http://localhost:3000/api/v1/document
 ```
 
 Check to see if the post route is working.
-
-----------------
 
 ### Request
 
@@ -170,8 +154,6 @@ POST http://localhost:3000/api/v1/document
 
 Test the schema validation of nested items.
 
-----------------
-
 ### Request
 
 > 
@@ -201,8 +183,6 @@ POST http://localhost:3000/api/v1/document
 
 Check to see if the post route is working.
 
-----------------
-
 ### Request
 
 > 
@@ -231,8 +211,6 @@ PUT http://localhost:3000/api/v1/document/5fa14115ea4bab39cbd17889
 
 Check to see if the put route is working and accepting an id.
 
-----------------
-
 ### Request
 
 > 
@@ -254,8 +232,6 @@ GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acmem.corp/api/v1
 
 Get an email image by ID.
 
-----------------
-
 ## Upload Image
 
 ```
@@ -263,8 +239,6 @@ POST http://localhost:3000/api/v1/image/upload
 ```
 
 Upload an image
-
-----------------
 
 ### Request
 
@@ -284,10 +258,6 @@ DELETE http://localhost:3000/api/v1/image/5fa3c929d7cbdd05ab940ec2
 ```
 
 
-
-----------------
-
-----------------
 
 Built with [Postdown][PyPI].
 

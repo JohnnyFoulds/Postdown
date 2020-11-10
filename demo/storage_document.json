@@ -48,7 +48,85 @@
 				},
 				"description": "Test the default path request for Email Documents."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get Document List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document?sort=desc&limit=2&status=updated",
+							"protocol": "https",
+							"host": [
+								"spamfilter-storageservice-rpa-prod",
+								"app",
+								"prod",
+								"fs",
+								"ocp",
+								"acme",
+								"corp"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "desc",
+									"description": "The direction (asc/desc) for sorting by the creation. This parameter is **optional** and **acending** is used as the default value."
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"description": "The max number of documents to return. When ommitted the default limit is **10**."
+								},
+								{
+									"key": "status",
+									"value": "updated",
+									"description": "The filter to apply to the top level `status` field. If omitted no filtering is done on this field."
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "813"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"32d-qyPEDzKTygrGCkLww62vhjgxiu4\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 10 Nov 2020 16:15:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"status\": \"updated\",\n        \"_id\": \"5fa2a9be9cc0a802080e275d\",\n        \"key\": \"post_request.eml\",\n        \"type\": \"Animal!\",\n        \"text\": \"The fox has jumped...\",\n        \"values\": [\n            {\n                \"status\": \"new\",\n                \"_id\": \"5fa2a9be9cc0a802080e275e\",\n                \"key\": \"subject\",\n                \"type\": \"text\",\n                \"text\": \"Post Email\",\n                \"values\": [],\n                \"created\": \"2020-11-04T13:16:46.028Z\",\n                \"updated\": \"2020-11-04T13:16:58.456Z\"\n            }\n        ],\n        \"created\": \"2020-11-04T13:16:46.028Z\",\n        \"updated\": \"2020-11-04T13:16:58.460Z\",\n        \"__v\": 0\n    },\n    {\n        \"status\": \"updated\",\n        \"_id\": \"5fa25d7de0eb6a3dc2f020be\",\n        \"key\": \"post_request.eml\",\n        \"type\": \"Animal!\",\n        \"text\": \"The fox has jumped...\",\n        \"values\": [\n            {\n                \"status\": \"new\",\n                \"_id\": \"5fa25d7de0eb6a3dc2f020bf\",\n                \"key\": \"subject\",\n                \"type\": \"text\",\n                \"text\": \"Post Email\",\n                \"values\": [],\n                \"created\": \"2020-11-04T07:51:25.395Z\",\n                \"updated\": \"2020-11-04T13:00:23.080Z\"\n            }\n        ],\n        \"created\": \"2020-11-04T07:51:25.396Z\",\n        \"updated\": \"2020-11-04T13:00:23.096Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Get Single Email Document",
