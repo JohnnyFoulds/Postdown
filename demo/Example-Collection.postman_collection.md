@@ -397,6 +397,4 @@ You should write the detail about this API.
 
 Built with [Postdown][PyPI].
 
-Author: [Titor](https://github.com/TitorX)
-
 [PyPI]:    https://pypi.python.org/pypi/Postdown

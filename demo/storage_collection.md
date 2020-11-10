@@ -415,6 +415,4 @@ DELETE http://localhost:3000/api/v1/image/5fa3c929d7cbdd05ab940ec2
 
 Built with [Postdown][PyPI].
 
-Author: [Titor](https://github.com/TitorX)
-
 [PyPI]:    https://pypi.python.org/pypi/Postdown
