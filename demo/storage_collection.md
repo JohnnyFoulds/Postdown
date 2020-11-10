@@ -121,14 +121,6 @@ Find a single email document by id.
 
 ----------------
 
-> 
-
-### Examples:
-
-> 
-
-----------------
-
 ## Delete Request
 
 ```
@@ -136,14 +128,6 @@ DELETE http://localhost:3000/api/v1/document/5f9983b699274c2f309fd4cd
 ```
 
 Test deleting a email document.
-
-----------------
-
-> 
-
-### Examples:
-
-> 
 
 ----------------
 
@@ -178,12 +162,6 @@ Check to see if the post route is working.
 > ```
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Create Netsted Email Document
 
 ```
@@ -215,12 +193,6 @@ Test the schema validation of nested items.
 > ```
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Post Request  - Error Testing
 
 ```
@@ -251,12 +223,6 @@ Check to see if the post route is working.
 > ```
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Put Request
 
 ```
@@ -280,12 +246,6 @@ Check to see if the put route is working and accepting an id.
 > ```
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Get Request
 
 ```
@@ -293,14 +253,6 @@ GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acmem.corp/api/v1
 ```
 
 Get an email image by ID.
-
-----------------
-
-> 
-
-### Examples:
-
-> 
 
 ----------------
 
@@ -325,12 +277,6 @@ Upload an image
 > |metadata|{"srNumber": "EC-1Z23-3QDBEJ"}|text||
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Delete Image
 
 ```
@@ -338,14 +284,6 @@ DELETE http://localhost:3000/api/v1/image/5fa3c929d7cbdd05ab940ec2
 ```
 
 
-
-----------------
-
-> 
-
-### Examples:
-
-> 
 
 ----------------
 

@@ -28,12 +28,6 @@ Test the default path request for Email Documents.
 > |status|updated|The filter to apply to the top level `status` field. If omitted no filtering is done on this field.|
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Get Single Email Document
 
 ```
@@ -44,14 +38,6 @@ Find a single email document by id.
 
 ----------------
 
-> 
-
-### Examples:
-
-> 
-
-----------------
-
 ## Delete Request
 
 ```
@@ -59,14 +45,6 @@ DELETE http://localhost:3000/api/v1/document/5f9983b699274c2f309fd4cd
 ```
 
 Test deleting a email document.
-
-----------------
-
-> 
-
-### Examples:
-
-> 
 
 ----------------
 
@@ -101,12 +79,6 @@ Check to see if the post route is working.
 > ```
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Create Netsted Email Document
 
 ```
@@ -138,12 +110,6 @@ Test the schema validation of nested items.
 > ```
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Post Request  - Error Testing
 
 ```
@@ -174,12 +140,6 @@ Check to see if the post route is working.
 > ```
 > 
 
-### Examples:
-
-> 
-
-----------------
-
 ## Put Request
 
 ```
@@ -202,12 +162,6 @@ Check to see if the put route is working and accepting an id.
 > }
 > ```
 > 
-
-### Examples:
-
-> 
-
-----------------
 
 ----------------
 
