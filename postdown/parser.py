@@ -100,7 +100,7 @@ def parse_api(doc, api):
             doc.table(['Key', 'Value', 'Description'], rows)
 
         # Request Body
-        if request['body']:
+        if 'body' in request:
             content = request['body'][request['body']['mode']]
             if request['body']['mode'] == 'file' and \
                     isinstance(content, dict):
