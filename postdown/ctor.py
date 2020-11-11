@@ -78,7 +78,7 @@ class MDDoc:
 
     def output(self):
         self.hr()
-        self.block("Built with [Postdown][PyPI].")
+        self.block("Generated with [Postdown][PyPI].")
         # It is apprporiate that credit is given to the postman tool with a link to the original URL of Titor, but adding an author just makes it looks like Titor is the author of the API. 
         #self.block("Author: [Titor](https://github.com/TitorX)")
         self.line('[PyPI]:    https://pypi.python.org/pypi/Postdown')
