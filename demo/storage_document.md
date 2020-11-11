@@ -267,6 +267,6 @@ Check to see if the post route is working.
 > ```
 > 
 
-Built with [Postdown][PyPI].
+Generated with [Postdown][PyPI].
 
 [PyPI]:    https://pypi.python.org/pypi/Postdown

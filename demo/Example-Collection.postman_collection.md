@@ -365,6 +365,6 @@ You should write the detail about this API.
 > > 
 > 
 
-Built with [Postdown][PyPI].
+Generated with [Postdown][PyPI].
 
 [PyPI]:    https://pypi.python.org/pypi/Postdown
