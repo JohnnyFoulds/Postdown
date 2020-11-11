@@ -21,12 +21,22 @@ Stream the image with the ID as specified in the URL. Links such as these can be
 ### Examples:
 
 > 
-> **Example: Get Request**
+> **Example: Retrieve Image Steam**
 > 
 > > 
 > > ```
 > > GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/image/5fa3ca9bb4fa9e0604f5002f
 > > ```
+> > 
+> > **Response**
+> > 
+> > > 
+> > > **Body**
+> > > 
+> > > ```
+> > > [BINARY_IMAGE_STREAM]
+> > > ```
+> > > 
 > > 
 > 
 

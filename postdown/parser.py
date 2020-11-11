@@ -169,7 +169,15 @@ def parse_api(doc, api):
                 # header_rows = [[i['key'], i['value']] for i in response['header']]
                 # doc.table(['Key', 'Value'], header_rows)
                 doc.bold('Body')
-                doc.code_block(json.dumps(json.loads(response['body']), indent=2))
+                
+                # don't assume the response is json
+                try:
+                    code_block = json.dumps(json.loads(response['body']), indent=2)
+                except:
+                    code_block = response['body']
+
+
+                doc.code_block(code_block)
                 doc.comment_end('Response')
             else:
                 logger.warn('There was no response body, please make sure this is correct.')

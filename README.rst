@@ -16,6 +16,7 @@ The purpose of this fork is to fix issue I ran into when attempting to use this 
 * Removed overused horizontal rule.
 * Added logging to aid debugging.
 * Handle empty example body.
+* Handle example response body that is not JSON.
 
 There are still some unsafe checks left for the moment to allow for validation that no new errors are introduced.
 

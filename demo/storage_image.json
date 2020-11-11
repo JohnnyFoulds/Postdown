@@ -56,7 +56,7 @@
 			},
 			"response": [
 				{
-					"name": "Get Request",
+					"name": "Retrieve Image Steam",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -83,7 +83,7 @@
 					"_postman_previewlanguage": null,
 					"header": null,
 					"cookie": [],
-					"body": null
+					"body": "[BINARY_IMAGE_STREAM]"
 				}
 			]
 		},
