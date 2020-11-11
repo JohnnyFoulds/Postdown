@@ -169,7 +169,7 @@ def parse_api(doc, api):
             doc.code_block(json.dumps(json.loads(response['body']), indent=2))
             doc.comment_end('Response')
 
-            #doc.comment_end()
+            doc.comment_end()
         doc.comment_end('Response example')
         doc.hr()
 

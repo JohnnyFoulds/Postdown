@@ -32,79 +32,80 @@ Retrieve a list of Email Document matching the criteria specified by the filters
 
 ### Examples:
 
-<__COMMENT__BEGIN__FLAG__>
-**Example: Get the latest two updated documents**
-
 > 
-> ```
-> GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document?sort=desc&limit=2&status=updated
-> ```
+> **Example: Get the latest two updated documents**
 > 
-> **Request**
-> 
-> > 
-> > **Query**
-> > 
-> > |Key|Value|Description|
-> > |---|---|---|
-> > |sort|desc|The direction (asc/desc) for sorting by the creation. This parameter is **optional** and **acending** is used as the default value.|
-> > |limit|2|The max number of documents to return. When ommitted the default limit is **10**.|
-> > |status|updated|The filter to apply to the top level `status` field. If omitted no filtering is done on this field.|
-> > 
-> 
-> **Response**
-> 
-> > 
-> > **Body**
 > > 
 > > ```
-> > [
-> >   {
-> >     "status": "updated", 
-> >     "updated": "2020-11-04T13:16:58.460Z", 
-> >     "created": "2020-11-04T13:16:46.028Z", 
-> >     "text": "The fox has jumped...", 
-> >     "__v": 0, 
-> >     "values": [
-> >       {
-> >         "status": "new", 
-> >         "updated": "2020-11-04T13:16:58.456Z", 
-> >         "created": "2020-11-04T13:16:46.028Z", 
-> >         "text": "Post Email", 
-> >         "values": [], 
-> >         "key": "subject", 
-> >         "_id": "5fa2a9be9cc0a802080e275e", 
-> >         "type": "text"
-> >       }
-> >     ], 
-> >     "key": "post_request.eml", 
-> >     "_id": "5fa2a9be9cc0a802080e275d", 
-> >     "type": "Animal!"
-> >   }, 
-> >   {
-> >     "status": "updated", 
-> >     "updated": "2020-11-04T13:00:23.096Z", 
-> >     "created": "2020-11-04T07:51:25.396Z", 
-> >     "text": "The fox has jumped...", 
-> >     "__v": 0, 
-> >     "values": [
-> >       {
-> >         "status": "new", 
-> >         "updated": "2020-11-04T13:00:23.080Z", 
-> >         "created": "2020-11-04T07:51:25.395Z", 
-> >         "text": "Post Email", 
-> >         "values": [], 
-> >         "key": "subject", 
-> >         "_id": "5fa25d7de0eb6a3dc2f020bf", 
-> >         "type": "text"
-> >       }
-> >     ], 
-> >     "key": "post_request.eml", 
-> >     "_id": "5fa25d7de0eb6a3dc2f020be", 
-> >     "type": "Animal!"
-> >   }
-> > ]
+> > GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document?sort=desc&limit=2&status=updated
 > > ```
+> > 
+> > **Request**
+> > 
+> > > 
+> > > **Query**
+> > > 
+> > > |Key|Value|Description|
+> > > |---|---|---|
+> > > |sort|desc|The direction (asc/desc) for sorting by the creation. This parameter is **optional** and **acending** is used as the default value.|
+> > > |limit|2|The max number of documents to return. When ommitted the default limit is **10**.|
+> > > |status|updated|The filter to apply to the top level `status` field. If omitted no filtering is done on this field.|
+> > > 
+> > 
+> > **Response**
+> > 
+> > > 
+> > > **Body**
+> > > 
+> > > ```
+> > > [
+> > >   {
+> > >     "status": "updated", 
+> > >     "updated": "2020-11-04T13:16:58.460Z", 
+> > >     "created": "2020-11-04T13:16:46.028Z", 
+> > >     "text": "The fox has jumped...", 
+> > >     "__v": 0, 
+> > >     "values": [
+> > >       {
+> > >         "status": "new", 
+> > >         "updated": "2020-11-04T13:16:58.456Z", 
+> > >         "created": "2020-11-04T13:16:46.028Z", 
+> > >         "text": "Post Email", 
+> > >         "values": [], 
+> > >         "key": "subject", 
+> > >         "_id": "5fa2a9be9cc0a802080e275e", 
+> > >         "type": "text"
+> > >       }
+> > >     ], 
+> > >     "key": "post_request.eml", 
+> > >     "_id": "5fa2a9be9cc0a802080e275d", 
+> > >     "type": "Animal!"
+> > >   }, 
+> > >   {
+> > >     "status": "updated", 
+> > >     "updated": "2020-11-04T13:00:23.096Z", 
+> > >     "created": "2020-11-04T07:51:25.396Z", 
+> > >     "text": "The fox has jumped...", 
+> > >     "__v": 0, 
+> > >     "values": [
+> > >       {
+> > >         "status": "new", 
+> > >         "updated": "2020-11-04T13:00:23.080Z", 
+> > >         "created": "2020-11-04T07:51:25.395Z", 
+> > >         "text": "Post Email", 
+> > >         "values": [], 
+> > >         "key": "subject", 
+> > >         "_id": "5fa25d7de0eb6a3dc2f020bf", 
+> > >         "type": "text"
+> > >       }
+> > >     ], 
+> > >     "key": "post_request.eml", 
+> > >     "_id": "5fa25d7de0eb6a3dc2f020be", 
+> > >     "type": "Animal!"
+> > >   }
+> > > ]
+> > > ```
+> > > 
 > > 
 > 
 
@@ -118,43 +119,44 @@ Find a single email document with the ID specified in the URL.
 
 ### Examples:
 
-<__COMMENT__BEGIN__FLAG__>
-**Example: Find Document: 5fa2a9ad9cc0a802080e2759**
-
 > 
-> ```
-> GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document/5fa2a9ad9cc0a802080e2759
-> ```
-> 
-> **Response**
+> **Example: Find Document: 5fa2a9ad9cc0a802080e2759**
 > 
 > > 
-> > **Body**
+> > ```
+> > GET https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document/5fa2a9ad9cc0a802080e2759
+> > ```
 > > 
-> > ```
-> > {
-> >   "status": "new", 
-> >   "updated": "2020-11-04T13:16:29.610Z", 
-> >   "created": "2020-11-04T13:16:29.575Z", 
-> >   "text": "Post request email body", 
-> >   "__v": 0, 
-> >   "values": [
-> >     {
-> >       "status": "new", 
-> >       "updated": "2020-11-04T13:16:29.606Z", 
-> >       "created": "2020-11-04T13:16:29.574Z", 
-> >       "text": "Post Email", 
-> >       "values": [], 
-> >       "key": "subject", 
-> >       "_id": "5fa2a9ad9cc0a802080e275a", 
-> >       "type": "text"
-> >     }
-> >   ], 
-> >   "key": "post_request.eml", 
-> >   "_id": "5fa2a9ad9cc0a802080e2759", 
-> >   "type": "Email"
-> > }
-> > ```
+> > **Response**
+> > 
+> > > 
+> > > **Body**
+> > > 
+> > > ```
+> > > {
+> > >   "status": "new", 
+> > >   "updated": "2020-11-04T13:16:29.610Z", 
+> > >   "created": "2020-11-04T13:16:29.575Z", 
+> > >   "text": "Post request email body", 
+> > >   "__v": 0, 
+> > >   "values": [
+> > >     {
+> > >       "status": "new", 
+> > >       "updated": "2020-11-04T13:16:29.606Z", 
+> > >       "created": "2020-11-04T13:16:29.574Z", 
+> > >       "text": "Post Email", 
+> > >       "values": [], 
+> > >       "key": "subject", 
+> > >       "_id": "5fa2a9ad9cc0a802080e275a", 
+> > >       "type": "text"
+> > >     }
+> > >   ], 
+> > >   "key": "post_request.eml", 
+> > >   "_id": "5fa2a9ad9cc0a802080e2759", 
+> > >   "type": "Email"
+> > > }
+> > > ```
+> > > 
 > > 
 > 
 
