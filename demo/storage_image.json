@@ -7,7 +7,29 @@
 	},
 	"item": [
 		{
-			"name": "Get Request",
+			"name": "Delete Image",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/image/5fa3c929d7cbdd05ab940ec2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"image",
+						"5fa3c929d7cbdd05ab940ec2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stream Image",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -30,9 +52,40 @@
 						"5fa3ca9bb4fa9e0604f5002f"
 					]
 				},
-				"description": "Get an email image by ID."
+				"description": "Stream the image with the ID as specified in the URL. Links such as these can be used in `img` tags for display on an HTML page."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/image/5fa3ca9bb4fa9e0604f5002f",
+							"protocol": "https",
+							"host": [
+								"spamfilter-storageservice-rpa-prod",
+								"app",
+								"prod",
+								"fs",
+								"ocp",
+								"acme",
+								"corp"
+							],
+							"path": [
+								"api",
+								"v1",
+								"image",
+								"5fa3ca9bb4fa9e0604f5002f"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Upload Image",
@@ -74,28 +127,28 @@
 				"description": "Upload an image"
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e3af7d62-502d-4164-8b92-d8cb73e4d7f6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		},
 		{
-			"name": "Delete Image",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/v1/image/5fa3c929d7cbdd05ab940ec2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"image",
-						"5fa3c929d7cbdd05ab940ec2"
-					]
-				}
-			},
-			"response": []
+			"listen": "test",
+			"script": {
+				"id": "bc55198a-7121-4480-9468-d755022e753c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}

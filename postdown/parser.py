@@ -159,15 +159,20 @@ def parse_api(doc, api):
                 doc.comment_end('Request Query')
                 doc.hr()
 
-            # 
-            doc.bold('Response')
-            doc.comment_begin('Response')
-            # doc.bold('Header')
-            # header_rows = [[i['key'], i['value']] for i in response['header']]
-            # doc.table(['Key', 'Value'], header_rows)
-            doc.bold('Body')
-            doc.code_block(json.dumps(json.loads(response['body']), indent=2))
-            doc.comment_end('Response')
+            if response['body']:
+                doc.bold('Response')
+                logger.info('Example Response')
+                #logger.debug('response body: % s', response['body'])
+
+                doc.comment_begin('Response')
+                # doc.bold('Header')
+                # header_rows = [[i['key'], i['value']] for i in response['header']]
+                # doc.table(['Key', 'Value'], header_rows)
+                doc.bold('Body')
+                doc.code_block(json.dumps(json.loads(response['body']), indent=2))
+                doc.comment_end('Response')
+            else:
+                logger.warn('There was no response body, please make sure this is correct.')
 
             doc.comment_end()
         doc.comment_end('Response example')
