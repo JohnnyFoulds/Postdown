@@ -3,6 +3,8 @@
 To test the packages without installing it, use the following:
 
 ```bash
+python -m postdown.cmdline demo/Example-Collection.postman_collection.json demo/Example-Collection.postman_collection.md
+python -m postdown.cmdline demo/storage_collection.json demo/storage_collection.md
 python -m postdown.cmdline demo/storage_document.json demo/storage_document.md
 python -m postdown.cmdline demo/storage_image.json demo/storage_image.md
 ```
