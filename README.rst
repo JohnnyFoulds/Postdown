@@ -13,6 +13,7 @@ The purpose of this fork is to fix issue I ran into when attempting to use this 
 * Do not render empty query tables.
 * Do not render empty Examples sections.
 * Removed overused horizontal rule.
+* Added logging to aid debugging.
 
 There are still some unsafe checks left for the moment to allow for validation that no new errors are introduced.
 

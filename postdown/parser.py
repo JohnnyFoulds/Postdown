@@ -1,6 +1,9 @@
 import json
+import logging
 from .ctor import MDDoc
 
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 def get_rows(raw, keys):
     result = list()
@@ -18,12 +21,15 @@ def need_request_header(request):
             ['key', 'value', 'description']
         )    
 
-    return len(rows) > 0 \
+    need_header = len(rows) > 0 \
         or ('body' in request) \
         or ( ('header' in request) and request['header'] )
 
+    logger.debug('need_request_header: %r', need_header)
+    return need_header
+
 def parse_api(doc, api):
-    print("API: ", api)
+    logger.info('Processing API: %s', api['name'])
     doc.title(api['name'], 2)
     request = api['request']
     url = request['url']['raw'] if isinstance(request['url'], dict) \
@@ -34,10 +40,10 @@ def parse_api(doc, api):
     doc.block(request.get('description', ''))
     doc.hr()
 
-    # Request information.
+    # Request information
     if need_request_header(request):
         doc.title('Request', 3)
-        doc.comment_begin()
+        doc.comment_begin('Request information')
         
         if isinstance(request['url'], dict):
             rows = get_rows(
@@ -79,15 +85,17 @@ def parse_api(doc, api):
                     elif request['body']['mode'] == 'file':
                         doc.text(request['body']['file']['src'])
 
-        doc.comment_end()
+        doc.comment_end('Request information')
 
-    # Response example.
+    # Response example
     if len(api['response']) > 0:
+        logger.info('Processing responses')
         doc.title('Examples:', 3)
-        doc.comment_begin()
+        doc.comment_begin('Response example')
         for response in api['response']:
+            logger.info('Processing Example: %s', response['name'])
             doc.bold('Example: {0}'.format(response['name']))
-            doc.comment_begin()
+            doc.comment_begin('Example')
 
             # Original Request
             request = response['originalRequest']
@@ -102,65 +110,67 @@ def parse_api(doc, api):
             # Request Query
             if need_request_header(request):
                 doc.bold('Request')
-                doc.comment_begin()
+                doc.comment_begin('Request Query')
 
-            if isinstance(request['url'], dict):
-                rows = get_rows(
-                    request['url']['query'],
-                    ['key', 'value', 'description']
-                )
-                if len(rows) > 0:
-                    doc.bold('Query')
+                if isinstance(request['url'], dict):
+                    rows = []
+                    if ('query' in request['url']):
+                        rows = get_rows(
+                            request['url']['query'],
+                            ['key', 'value', 'description']
+                        )
+
+                    if len(rows) > 0:
+                        doc.bold('Query')
+                        doc.table(['Key', 'Value', 'Description'], rows)
+
+                # Request Header
+                if request['header']:
+                    doc.bold('Header')
+                    rows = get_rows(
+                        request['header'],
+                        ['key', 'value', 'description']
+                    )
                     doc.table(['Key', 'Value', 'Description'], rows)
 
-            # Request Header
-            if request['header']:
-                doc.bold('Header')
-                rows = get_rows(
-                    request['header'],
-                    ['key', 'value', 'description']
-                )
-                doc.table(['Key', 'Value', 'Description'], rows)
+                # Request Body
+                if 'body' in request:
+                    if 'mode' in request['body']:
+                        content = request['body'][request['body']['mode']]
+                        if request['body']['mode'] == 'file' and \
+                                isinstance(content, dict):
+                            content = content.get('src', '')
 
-            # Request Body
-            if 'body' in request:
-                if 'mode' in request['body']:
-                    content = request['body'][request['body']['mode']]
-                    if request['body']['mode'] == 'file' and \
-                            isinstance(content, dict):
-                        content = content.get('src', '')
+                        if content:
+                            doc.bold('Body')
+                            if request['body']['mode'] in ['formdata', 'urlencoded']:
+                                rows = get_rows(
+                                    content,
+                                    ['key', 'value', 'type', 'description']
+                                )
+                                doc.table(
+                                    ['Key', 'Value', 'Type', 'Description'], rows
+                                )
+                            elif request['body']['mode'] == 'raw':
+                                doc.code_block(request['body']['raw'])
+                            elif request['body']['mode'] == 'file':
+                                doc.text(request['body']['file']['src'])
 
-                    if content:
-                        doc.bold('Body')
-                        if request['body']['mode'] in ['formdata', 'urlencoded']:
-                            rows = get_rows(
-                                content,
-                                ['key', 'value', 'type', 'description']
-                            )
-                            doc.table(
-                                ['Key', 'Value', 'Type', 'Description'], rows
-                            )
-                        elif request['body']['mode'] == 'raw':
-                            doc.code_block(request['body']['raw'])
-                        elif request['body']['mode'] == 'file':
-                            doc.text(request['body']['file']['src'])
+                doc.comment_end('Request Query')
+                doc.hr()
 
-            doc.comment_end()
-
-            doc.hr()
-
-            # Response
+            # 
             doc.bold('Response')
-            doc.comment_begin()
+            doc.comment_begin('Response')
             # doc.bold('Header')
             # header_rows = [[i['key'], i['value']] for i in response['header']]
             # doc.table(['Key', 'Value'], header_rows)
             doc.bold('Body')
             doc.code_block(json.dumps(json.loads(response['body']), indent=2))
-            doc.comment_end()
+            doc.comment_end('Response')
 
-            doc.comment_end()
-        doc.comment_end()
+            #doc.comment_end()
+        doc.comment_end('Response example')
         doc.hr()
 
 

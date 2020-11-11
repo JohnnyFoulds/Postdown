@@ -1,4 +1,7 @@
+import logging
 
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 class MDDoc:
 
@@ -50,10 +53,20 @@ class MDDoc:
         self.line('```')
         self.br()
 
-    def comment_begin(self):
+    def comment_begin(self, origin=None):
+        if origin:
+            logger.debug('comment_begin: %s', origin)
+        else:
+            logger.debug('comment_begin')
+
         self.line(self.COMMENT_BEGIN_FLAG)
 
-    def comment_end(self):
+    def comment_end(self, origin=None):
+        if origin:
+            logger.debug('comment_end: %s', origin)
+        else:
+            logger.debug('comment_end')
+
         i = -1
         while True:
             if self.md_struct[i].startswith(self.COMMENT_BEGIN_FLAG):

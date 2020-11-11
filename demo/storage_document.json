@@ -7,12 +7,35 @@
 	},
 	"item": [
 		{
-			"name": "Get Document List",
+			"name": "Delete Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/document/5f9983b699274c2f309fd4cd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"document",
+						"5f9983b699274c2f309fd4cd"
+					]
+				},
+				"description": "Test deleting a email document."
+			},
+			"response": []
+		},
+		{
+			"name": "Document List",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document?sort=desc&limit=2&status=updated",
+					"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document?sort=asc&limit=10&status=",
 					"protocol": "https",
 					"host": [
 						"spamfilter-storageservice-rpa-prod",
@@ -31,26 +54,26 @@
 					"query": [
 						{
 							"key": "sort",
-							"value": "desc",
-							"description": "The direction (asc/desc) for sorting by the creation. This parameter is **optional** and **acending** is used as the default value."
+							"value": "asc",
+							"description": "The direction (asc/desc) for sorting by the creation. This parameter is **optional**, and **ascending** is used as the default value."
 						},
 						{
 							"key": "limit",
-							"value": "2",
-							"description": "The max number of documents to return. When ommitted the default limit is **10**."
+							"value": "10",
+							"description": "The max number of documents to return. When omitted the default limit is **10**."
 						},
 						{
 							"key": "status",
-							"value": "updated",
-							"description": "The filter to apply to the top level `status` field. If omitted no filtering is done on this field."
+							"value": "",
+							"description": "The filter to apply to the top-level `status` field. When omitted, no filtering is applied to this field."
 						}
 					]
 				},
-				"description": "Test the default path request for Email Documents."
+				"description": "Retrieve a list of Email Document matching the criteria specified by the filters."
 			},
 			"response": [
 				{
-					"name": "Get Document List",
+					"name": "Get the latest two updated documents",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -129,34 +152,111 @@
 			]
 		},
 		{
-			"name": "Get Single Email Document",
+			"name": "Find Document",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/document",
-					"protocol": "http",
+					"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document/5fa2a9ad9cc0a802080e2759",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"spamfilter-storageservice-rpa-prod",
+						"app",
+						"prod",
+						"fs",
+						"ocp",
+						"acme",
+						"corp"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
-						"document"
+						"document",
+						"5fa2a9ad9cc0a802080e2759"
 					]
 				},
-				"description": "Find a single email document by id."
+				"description": "Find a single email document with the ID specified in the URL."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Find Document: 5fa2a9ad9cc0a802080e2759",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://spamfilter-storageservice-rpa-prod.app.prod.fs.ocp.acme.corp/api/v1/document/5fa2a9ad9cc0a802080e2759",
+							"protocol": "https",
+							"host": [
+								"spamfilter-storageservice-rpa-prod",
+								"app",
+								"prod",
+								"fs",
+								"ocp",
+								"acme",
+								"corp"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"5fa2a9ad9cc0a802080e2759"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "401"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"191-k2yD1T7BtKMcVBoEY/r8IHYpPIk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 11 Nov 2020 07:02:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"new\",\n    \"_id\": \"5fa2a9ad9cc0a802080e2759\",\n    \"key\": \"post_request.eml\",\n    \"type\": \"Email\",\n    \"text\": \"Post request email body\",\n    \"values\": [\n        {\n            \"status\": \"new\",\n            \"_id\": \"5fa2a9ad9cc0a802080e275a\",\n            \"key\": \"subject\",\n            \"type\": \"text\",\n            \"text\": \"Post Email\",\n            \"values\": [],\n            \"created\": \"2020-11-04T13:16:29.574Z\",\n            \"updated\": \"2020-11-04T13:16:29.606Z\"\n        }\n    ],\n    \"created\": \"2020-11-04T13:16:29.575Z\",\n    \"updated\": \"2020-11-04T13:16:29.610Z\",\n    \"__v\": 0\n}"
+				}
+			]
 		},
 		{
-			"name": "Delete Request",
+			"name": "Put Request",
 			"request": {
-				"method": "DELETE",
+				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"The fox has jumped...\",\r\n    \"type\": \"Animal!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/document/5f9983b699274c2f309fd4cd",
+					"raw": "http://localhost:3000/api/v1/document/5fa14115ea4bab39cbd17889",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -166,10 +266,10 @@
 						"api",
 						"v1",
 						"document",
-						"5f9983b699274c2f309fd4cd"
+						"5fa14115ea4bab39cbd17889"
 					]
 				},
-				"description": "Test deleting a email document."
+				"description": "Check to see if the put route is working and accepting an id."
 			},
 			"response": []
 		},
@@ -263,38 +363,6 @@
 					]
 				},
 				"description": "Check to see if the post route is working."
-			},
-			"response": []
-		},
-		{
-			"name": "Put Request",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"text\": \"The fox has jumped...\",\r\n    \"type\": \"Animal!\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/v1/document/5fa14115ea4bab39cbd17889",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"document",
-						"5fa14115ea4bab39cbd17889"
-					]
-				},
-				"description": "Check to see if the put route is working and accepting an id."
 			},
 			"response": []
 		}
