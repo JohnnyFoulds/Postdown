@@ -22,7 +22,7 @@ Installation
 
 .. code:: shell
 
-    pip install postdown
+    pip install -e git+https://github.com/JohnnyFoulds/Postdown#egg=postdown
 
 
 Usage
