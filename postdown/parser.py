@@ -174,7 +174,7 @@ def parse_api(doc, api):
             else:
                 logger.warn('There was no response body, please make sure this is correct.')
 
-            doc.comment_end()
+            doc.comment_end('Example')
         doc.comment_end('Response example')
         doc.hr()
 
